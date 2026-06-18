@@ -1,0 +1,10 @@
+{
+  "files.watcherExclude": {
+    "**/.open-next/**": true,
+    "**/.next/**": true,
+    "**/node_modules/**": true
+  },
+  "files.exclude": {
+    "**/.open-next": true
+  }
+}
