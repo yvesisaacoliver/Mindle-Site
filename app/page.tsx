@@ -7,7 +7,6 @@ import { ComparisonSection } from '@/components/landing/comparison-section'
 import { TestimonialsSection } from '@/components/landing/testimonials-section'
 import { PricingSection } from '@/components/landing/pricing-section'
 import { FormSection } from '@/components/landing/form-section'
-import { CambridgeSection } from '@/components/landing/cambridge-section'
 import { FAQSection } from '@/components/landing/faq-section'
 import { Footer } from '@/components/landing/footer'
 
@@ -46,10 +45,7 @@ export default function Home() {
         
         {/* Seção 10: Formulário de Captura */}
         <FormSection />
-        
-        {/* Seção 11: Intercâmbio Cambridge */}
-        <CambridgeSection />
-        
+
         {/* Seção 12: Perguntas Frequentes */}
         <div id="faq">
           <FAQSection />
