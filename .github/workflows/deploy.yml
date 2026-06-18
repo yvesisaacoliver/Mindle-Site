@@ -23,9 +23,12 @@ jobs:
 
       - name: Build (OpenNext + Cloudflare)
         run: npm run build
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
 
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          vars: RESEND_API_KEY=${{ secrets.RESEND_API_KEY }}

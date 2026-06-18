@@ -22,8 +22,19 @@ export function FormSection() {
   const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault()
     setStatus('loading')
-    await new Promise(resolve => setTimeout(resolve, 1500))
-    setStatus('success')
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+
+      if (!res.ok) throw new Error('Falha no envio')
+      setStatus('success')
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
@@ -53,7 +64,7 @@ export function FormSection() {
                   className="text-[15px] lg:text-[17px] leading-[1.6]"
                   style={{ color: '#555' }}
                 >
-                  Conta o que tá te travando — na decisão ou no inglês. Nossa equipe entra em contato via WhatsApp em até 2h.
+                  Conta o que tá te travando, na decisão ou no inglês. Nossa equipe entra em contato via WhatsApp em até 2h.
                 </p>
               </div>
 
