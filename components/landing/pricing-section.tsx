@@ -7,45 +7,44 @@ import { Check, Sparkles } from 'lucide-react'
 
 const plans = [
   {
-    name: 'Mensal',
-    price: 'R$ 297',
+    name: 'Individual',
+    price: 'R$ 397',
     period: '/mês',
     discount: null,
     popular: false,
     features: [
-      'Aulas ao vivo ilimitadas',
-      'App com IA personalizada',
-      'Comunidade de alunos',
-      'Suporte via WhatsApp'
+      'Aula individual ao vivo',
+      'Aulas 1X na semana',
+      'Plano de estudos personalizado',
+      'Foco total em conversação'
     ]
   },
   {
-    name: 'Semestral',
-    price: 'R$ 1.497',
-    period: '/6 meses',
-    discount: '15% OFF',
+    name: 'Turma',
+    price: 'R$ 197',
+    period: '/mês',
+    discount: '50% OFF',
     popular: true,
     features: [
-      'Aulas ao vivo ilimitadas',
-      'App com IA personalizada',
-      'Comunidade de alunos',
-      'Suporte via WhatsApp',
-      'Mentoria em grupo mensal'
+      'Foco em conversação',
+      'Aulas ao vivo com professor',
+      'Turmas de até 5 alunos',
+      'Material incluso',
+      'Encontros 1X na semana'
     ]
   },
   {
-    name: 'Anual',
-    price: 'R$ 2.397',
-    period: '/12 meses',
+    name: 'Individual Premium',
+    price: 'R$ 720',
+    period: '/mês',
     discount: '30% OFF',
     popular: false,
     features: [
-      'Aulas ao vivo ilimitadas',
-      'App com IA personalizada',
-      'Comunidade de alunos',
-      'Suporte via WhatsApp',
-      'Mentoria em grupo mensal',
-      'Intercâmbio Cambridge incluso'
+      '2 aulas ao vivo por semana',
+      'Foco total em conversação',
+      'Evolução mais rápida e consistente',
+      'Plano personalizado',
+      'Preparação para trabalho, viagens e entrevistas'
     ]
   }
 ]
@@ -78,7 +77,7 @@ export function PricingSection() {
                 <div className="absolute top-0 right-0 left-0">
                   <div className="bg-primary text-primary-foreground text-center py-2 text-sm font-semibold flex items-center justify-center gap-2">
                     <Sparkles className="h-4 w-4" />
-                    MAIS POPULAR
+                    MAIS VENDIDO
                   </div>
                 </div>
               )}

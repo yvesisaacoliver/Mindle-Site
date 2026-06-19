@@ -19,22 +19,19 @@ export function FormSection() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [imgLoaded, setImgLoaded] = useState(false)
 
-  const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault()
     setStatus('loading')
 
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      })
+    const text = encodeURIComponent(
+      `Olá! Vim pelo site da Mindle Idiomas.\n\n` +
+      `*Nome:* ${formData.name}\n` +
+      `*WhatsApp:* ${formData.whatsapp}\n\n` +
+      `*Mensagem:* ${formData.message}`
+    )
 
-      if (!res.ok) throw new Error('Falha no envio')
-      setStatus('success')
-    } catch {
-      setStatus('error')
-    }
+    window.open(`https://wa.me/5511934538109?text=${text}`, '_blank')
+    setStatus('success')
   }
 
   return (
@@ -71,9 +68,9 @@ export function FormSection() {
               {status === 'success' ? (
                 <div className="p-8 rounded-2xl text-center bg-emerald-50 border border-emerald-200">
                   <CheckCircle2 className="h-12 w-12 text-emerald-500 mx-auto mb-4" />
-                  <h3 className="text-xl font-bold mb-2" style={{ color: '#111' }}>Mensagem enviada!</h3>
+                  <h3 className="text-xl font-bold mb-2" style={{ color: '#111' }}>WhatsApp aberto!</h3>
                   <p className="text-sm" style={{ color: '#555' }}>
-                    Nossa equipe entra em contato via WhatsApp em até 2h.
+                    Sua mensagem já está preenchida. É só enviar no WhatsApp.
                   </p>
                 </div>
               ) : status === 'error' ? (
