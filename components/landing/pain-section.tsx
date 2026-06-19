@@ -13,10 +13,6 @@ const painDreams = [
     dream: 'A promoção é sua. Porque você finalmente consegue mostrar tudo que vale — em qualquer idioma.'
   },
   {
-    pain: 'Você planejou cada detalhe da viagem. Mas na hora de resolver qualquer coisa, ficou em silêncio.',
-    dream: 'Você resolve, conversa, se vira sozinho. Viajar deixa de ser uma prova e passa a ser só prazer.'
-  },
-  {
     pain: 'Você canta a música inteira sem saber o que tá dizendo. Todo mundo ri na cena e você dá uma risadinha dois segundos depois fingindo que pegou.',
     dream: 'Você entende a letra, ri junto no momento certo. Sem fingir, sem legenda. O inglês finalmente faz parte de quem você é.'
   }
