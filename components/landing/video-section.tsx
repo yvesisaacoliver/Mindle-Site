@@ -14,7 +14,7 @@ export function VideoSection() {
             Conheça a Mindle
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A escola que já mudou a vida de milhares de pessoas e pode mudar a sua também. Veja o método, e quem já destravou o inglês aqui.
+            A escola que já mudou a vida de milhares de pessoas e pode mudar a sua também. Veja o método e quem já destravou o inglês aqui.
           </p>
         </div>
         
@@ -39,12 +39,11 @@ export function VideoSection() {
                 <div className="absolute bottom-4 right-4 w-16 h-16 border-2 border-primary/20 rounded-lg" />
               </>
             ) : (
-              <video
-                className="absolute inset-0 w-full h-full object-cover"
-                src="/MINDLE ALTERADO FINAL.mp4"
-                autoPlay
-                controls
-                playsInline
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/8LFpvh_zhOI?autoplay=1"
+                allow="autoplay; fullscreen"
+                allowFullScreen
               />
             )}
           </div>
