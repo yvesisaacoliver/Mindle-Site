@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
 import { Spinner } from '@/components/ui/spinner'
 import { CheckCircle2, AlertCircle } from 'lucide-react'
 
@@ -17,7 +16,6 @@ const labelClass = 'block text-[11px] font-medium uppercase tracking-[0.15em] te
 export function FormSection() {
   const [formData, setFormData] = useState({ name: '', whatsapp: '', message: '' })
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
-  const [imgLoaded, setImgLoaded] = useState(false)
 
   const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -37,11 +35,8 @@ export function FormSection() {
   return (
     <section id="formulario" className="bg-white py-[60px] lg:py-[100px]">
       <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-20 items-center">
-
-            {/* Left — header + form */}
-            <div>
+        <div className="max-w-2xl mx-auto">
+          <div>
               <div className="mb-6 lg:mb-10">
                 <p
                   className="text-[12px] font-bold uppercase mb-4"
@@ -145,42 +140,6 @@ export function FormSection() {
                   </p>
                 </form>
               )}
-            </div>
-
-            {/* Right — image (mobile: after form via natural grid flow) */}
-            <div>
-              <div
-                className="relative w-full rounded-2xl overflow-hidden max-h-[260px] lg:max-h-none"
-                style={{ aspectRatio: '4/3' }}
-              >
-                {/* Placeholder elegante */}
-                <div
-                  className="absolute inset-0 flex items-center justify-center"
-                  style={{
-                    background: 'linear-gradient(135deg, #f5f5f5, #ebebeb)',
-                    opacity: imgLoaded ? 0 : 1,
-                    transition: 'opacity 0.4s ease',
-                  }}
-                >
-                  <span className="text-sm tracking-widest" style={{ color: '#ccc' }}>
-                    [ Foto da equipe ]
-                  </span>
-                </div>
-
-                <Image
-                  src="/images/form-section.jpg"
-                  alt="Equipe Full English"
-                  fill
-                  className="object-cover"
-                  onLoad={() => setImgLoaded(true)}
-                  style={{
-                    opacity: imgLoaded ? 1 : 0,
-                    transition: 'opacity 0.4s ease',
-                  }}
-                />
-              </div>
-            </div>
-
           </div>
         </div>
       </div>
