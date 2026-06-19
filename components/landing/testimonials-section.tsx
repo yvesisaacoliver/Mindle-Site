@@ -7,32 +7,32 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 // ── Adicione novos depoimentos aqui ──────────────────────────────────────────
 const testimonials = [
   {
-    name: 'Mariana Costa',
-    role: 'Gerente de Projetos na Petrobras',
+    name: 'Lucas Ferreira',
+    role: 'Coordenador de Marketing na Ambev',
     quote: 'Depois de anos tentando aprender inglês em cursos tradicionais, finalmente consegui participar de reuniões internacionais com confiança. Em 3 meses, recebi minha promoção.',
     rating: 5,
   },
   {
-    name: 'Ricardo Santos',
-    role: 'Diretor de Tecnologia na Vale',
+    name: 'Camila Borges',
+    role: 'Diretora Jurídica no Bradesco',
     quote: 'O método é revolucionário. Você pratica conversação desde a primeira aula. Hoje lidero equipes globais e faço apresentações em inglês sem medo.',
     rating: 5,
   },
   {
-    name: 'Ana Paula Oliveira',
-    role: 'Executiva de Vendas na Shell',
-    quote: 'Tinha vergonha de falar inglês mesmo depois de anos estudando. A Full English mudou minha vida profissional. Consegui fechar contratos internacionais que pareciam impossíveis.',
+    name: 'Thiago Almeida',
+    role: 'Analista de Negócios na Accenture',
+    quote: 'Tinha vergonha de falar inglês mesmo depois de anos estudando. A Mindle Idiomas mudou minha vida profissional. Consegui fechar contratos internacionais que pareciam impossíveis.',
     rating: 5,
   },
   {
-    name: 'Felipe Mendonça',
-    role: 'Engenheiro Sênior na Embraer',
+    name: 'Fernanda Lima',
+    role: 'Gerente Comercial na Johnson & Johnson',
     quote: 'Nunca imaginei que conseguiria apresentar um projeto técnico em inglês para uma plateia internacional. Hoje faço isso com naturalidade.',
     rating: 5,
   },
   {
-    name: 'Juliana Ramos',
-    role: 'Analista Financeira no Itaú',
+    name: 'Bruno Carvalho',
+    role: 'Desenvolvedor Sênior na Nubank',
     quote: 'Minha maior dificuldade era o listening. Depois de dois meses, comecei a entender filmes sem legenda. Parecia impossível antes.',
     rating: 5,
   },
