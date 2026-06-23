@@ -3,6 +3,67 @@
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 
+const photos = ['/mindle-foto-1.jpeg', '/mindle-foto-2.jpeg', '/mindle-foto-3.jpeg']
+
+function PhotoCarousel() {
+  const [current, setCurrent] = useState(0)
+  const dragStart = useRef(0)
+
+  const prev = () => setCurrent(i => (i === 0 ? photos.length - 1 : i - 1))
+  const next = () => setCurrent(i => (i === photos.length - 1 ? 0 : i + 1))
+
+  return (
+    <div className="flex-shrink-0 w-full max-w-[260px] lg:max-w-[300px]">
+      {/* Imagem */}
+      <div
+        className="relative aspect-square rounded-2xl overflow-hidden border border-white/10 cursor-grab active:cursor-grabbing"
+        onMouseDown={e => { dragStart.current = e.clientX }}
+        onMouseUp={e => {
+          const delta = dragStart.current - e.clientX
+          if (delta > 40) next()
+          else if (delta < -40) prev()
+        }}
+        onTouchStart={e => { dragStart.current = e.touches[0].clientX }}
+        onTouchEnd={e => {
+          const delta = dragStart.current - e.changedTouches[0].clientX
+          if (delta > 40) next()
+          else if (delta < -40) prev()
+        }}
+      >
+        {photos.map((src, i) => (
+          <div
+            key={i}
+            className="absolute inset-0 transition-opacity duration-400"
+            style={{ opacity: i === current ? 1 : 0 }}
+          >
+            <Image src={src} alt={`Mindle Idiomas ${i + 1}`} fill className="object-cover" />
+          </div>
+        ))}
+      </div>
+
+      {/* Dots */}
+      <div className="flex justify-center gap-2 mt-3">
+        {photos.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            style={{
+              width: i === current ? 20 : 7,
+              height: 7,
+              borderRadius: 9999,
+              background: i === current ? '#fff' : 'rgba(255,255,255,0.35)',
+              transition: 'all 300ms ease',
+              border: 'none',
+              cursor: 'pointer',
+              padding: 0,
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
 const painDreams = [
   {
     pain: 'Você conhece o assunto melhor do que ninguém na sala. Mas quando abrem o microfone, aquilo tudo some.',
@@ -158,20 +219,7 @@ export function PainSection() {
           <div className="max-w-4xl mx-auto">
             <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
 
-              {/* 3 fotos */}
-              <div className="flex gap-3 flex-shrink-0">
-                {['/mindle-foto-1.jpeg', '/mindle-foto-2.jpeg', '/mindle-foto-3.jpeg'].map((src, i) => (
-                  <div key={i} className="w-[90px] lg:w-[110px] aspect-[3/4] rounded-xl overflow-hidden border border-white/10 flex-shrink-0">
-                    <Image
-                      src={src}
-                      alt={`Aluno Mindle Idiomas ${i + 1}`}
-                      width={110}
-                      height={147}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
+              <PhotoCarousel />
 
               {/* Text + CTA */}
               <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-8">
