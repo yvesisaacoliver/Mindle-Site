@@ -13,7 +13,7 @@ const steps = [
   {
     number: '02',
     icon: RefreshCw,
-    title: ' Repetição inteligente',
+    title: ' Repetição',
     description: 'Revisamos nos momentos certos para fixar de verdade. Sem esquecer depois de uma semana.'
   },
   {
