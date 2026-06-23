@@ -10,7 +10,7 @@ const painDreams = [
   },
   {
     pain: 'Seu colega menos qualificado foi promovido. De novo. Por causa do inglês.',
-    dream: 'A promoção é sua. Porque você finalmente consegue mostrar tudo que vale — em qualquer idioma.'
+    dream: 'A promoção é sua. Porque você finalmente consegue mostrar tudo que vale em qualquer idioma.'
   },
   {
     pain: 'Você canta a música inteira sem saber o que tá dizendo. Todo mundo ri na cena e você dá uma risadinha dois segundos depois fingindo que pegou.',
@@ -158,15 +158,19 @@ export function PainSection() {
           <div className="max-w-4xl mx-auto">
             <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
 
-              {/* Image */}
-              <div className="w-full max-w-[260px] lg:max-w-[320px] flex-shrink-0 aspect-square rounded-2xl overflow-hidden border border-white/10">
-                <Image
-                  src="/placeholder-user.jpg"
-                  alt="Profissional falando inglês com confiança"
-                  width={320}
-                  height={320}
-                  className="w-full h-full object-cover"
-                />
+              {/* 3 fotos */}
+              <div className="flex gap-3 flex-shrink-0">
+                {['/mindle-foto-1.jpeg', '/mindle-foto-2.jpeg', '/mindle-foto-3.jpeg'].map((src, i) => (
+                  <div key={i} className="w-[90px] lg:w-[110px] aspect-[3/4] rounded-xl overflow-hidden border border-white/10 flex-shrink-0">
+                    <Image
+                      src={src}
+                      alt={`Aluno Mindle Idiomas ${i + 1}`}
+                      width={110}
+                      height={147}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
               </div>
 
               {/* Text + CTA */}
