@@ -15,9 +15,25 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: 'Mindle Idiomas',
-  description: 'Escola de inglês para profissionais adultos. Aulas focadas em conversação para destravar seu inglês e conquistar oportunidades globais.',
+  description: 'Uma escola moderna que prepara alunos para o mundo, com professores qualificados e foco em resultados reais para trabalho, viagens e oportunidades globais.',
   keywords: ['inglês para adultos', 'aulas de inglês', 'conversação em inglês', 'inglês para profissionais', 'escola de inglês'],
   generator: 'v0.app',
+  openGraph: {
+    title: 'Mindle Idiomas',
+    description: 'Uma escola moderna que prepara alunos para o mundo, com professores qualificados e foco em resultados reais para trabalho, viagens e oportunidades globais.',
+    url: 'https://mindle.com.br',
+    siteName: 'Mindle Idiomas',
+    images: [
+      {
+        url: '/apple-icon.jpeg',
+        width: 1024,
+        height: 1024,
+        alt: 'Mindle Idiomas',
+      },
+    ],
+    locale: 'pt_BR',
+    type: 'website',
+  },
   icons: {
     icon: [
       {
