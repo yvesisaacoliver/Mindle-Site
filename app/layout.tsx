@@ -14,6 +14,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://mindle.com.br'),
   title: 'Mindle Idiomas',
   description: 'Uma escola moderna que prepara alunos para o mundo, com professores qualificados e foco em resultados reais para trabalho, viagens e oportunidades globais.',
   keywords: ['inglês para adultos', 'aulas de inglês', 'conversação em inglês', 'inglês para profissionais', 'escola de inglês'],
