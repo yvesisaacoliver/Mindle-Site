@@ -1,10 +1,19 @@
 {
-  "name": "mindle-site",
-  "main": ".open-next/worker.js",
-  "compatibility_date": "2025-06-01",
-  "compatibility_flags": ["nodejs_compat"],
-  "assets": {
-    "directory": ".open-next/assets",
-    "binding": "ASSETS"
-  }
+	"name": "mindle-site",
+	"main": ".open-next/worker.js",
+	"compatibility_date": "2025-06-01",
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	"assets": {
+		"directory": ".open-next/assets",
+		"binding": "ASSETS"
+	},
+	"kv_namespaces": [
+		{
+			"binding": "PEDIDOS",
+			"id": "4a247fca8e324d1dbbb846672e17ddc6",
+			"preview_id": "93ed8f9c29ac42528c15e2343eb4c1c6"
+		}
+	]
 }

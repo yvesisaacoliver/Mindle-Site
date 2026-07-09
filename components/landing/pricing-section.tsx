@@ -1,6 +1,4 @@
-'use client'
-
-import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Check, Sparkles } from 'lucide-react'
@@ -8,6 +6,7 @@ import { Check, Sparkles } from 'lucide-react'
 const plans = [
   {
     name: 'Individual',
+    slug: 'individual',
     price: 'R$ 397',
     period: '/mês',
     discount: null,
@@ -21,6 +20,7 @@ const plans = [
   },
   {
     name: 'Turma',
+    slug: 'turma',
     price: 'R$ 197',
     period: '/mês',
     discount: '50% OFF',
@@ -35,6 +35,7 @@ const plans = [
   },
   {
     name: 'Individual Premium',
+    slug: 'individual-premium',
     price: 'R$ 720',
     period: '/mês',
     discount: '30% OFF',
@@ -50,10 +51,6 @@ const plans = [
 ]
 
 export function PricingSection() {
-  const scrollToForm = () => {
-    document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' })
-  }
-
   return (
     <section className="py-16 lg:py-24 bg-card">
       <div className="container mx-auto px-4">
@@ -62,14 +59,14 @@ export function PricingSection() {
             Escolha o plano ideal para você
           </h2>
         </div>
-        
+
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
           {plans.map((plan, index) => (
-            <Card 
+            <Card
               key={index}
               className={`relative overflow-hidden transition-all duration-300 hover:shadow-xl ${
-                plan.popular 
-                  ? 'border-2 border-primary shadow-lg scale-105 z-10' 
+                plan.popular
+                  ? 'border-2 border-primary shadow-lg scale-105 z-10'
                   : 'border-border/50 hover:border-primary/30'
               }`}
             >
@@ -81,7 +78,7 @@ export function PricingSection() {
                   </div>
                 </div>
               )}
-              
+
               <CardHeader className={`text-center ${plan.popular ? 'pt-14' : 'pt-8'} pb-4`}>
                 <h3 className="text-xl font-bold text-foreground mb-2">{plan.name}</h3>
                 {plan.discount && (
@@ -94,7 +91,7 @@ export function PricingSection() {
                   <span className="text-muted-foreground">{plan.period}</span>
                 </div>
               </CardHeader>
-              
+
               <CardContent className="pb-8">
                 <ul className="space-y-4 mb-8">
                   {plan.features.map((feature, i) => (
@@ -106,17 +103,17 @@ export function PricingSection() {
                     </li>
                   ))}
                 </ul>
-                
-                <Button 
-                  onClick={scrollToForm}
-                  className={`w-full py-6 rounded-full ${
-                    plan.popular 
-                      ? 'bg-primary hover:bg-primary/90 text-primary-foreground' 
+
+                <Link
+                  href={`/checkout?plano=${plan.slug}`}
+                  className={`flex items-center justify-center w-full py-3 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] ${
+                    plan.popular
+                      ? 'bg-primary hover:bg-primary/90 text-primary-foreground'
                       : 'bg-secondary hover:bg-secondary/80 text-secondary-foreground'
                   }`}
                 >
                   Começar agora
-                </Button>
+                </Link>
               </CardContent>
             </Card>
           ))}
