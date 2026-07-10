@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { Button } from '@/components/ui/button'
 import { ArrowRight, X } from 'lucide-react'
+import Link from 'next/link'
 
 const navItems = [
   { label: 'Método', href: '#metodo', description: 'Nossa abordagem única' },
@@ -38,11 +39,6 @@ export function Header() {
     }
     window.addEventListener('keydown', handleKey)
     return () => window.removeEventListener('keydown', handleKey)
-  }, [])
-
-  const scrollToForm = useCallback(() => {
-    document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' })
-    setIsOpen(false)
   }, [])
 
   const scrollToSection = useCallback((href: string) => {
@@ -82,12 +78,11 @@ export function Header() {
 
             {/* Desktop CTA */}
             <div className="hidden lg:block">
-              <Button
-                onClick={scrollToForm}
-                className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground px-6 cursor-pointer"
-              >
-                Começar agora
-              </Button>
+              <Link href="/checkout">
+                <Button className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground px-6 cursor-pointer">
+                  Começar agora
+                </Button>
+              </Link>
             </div>
 
             {/* Mobile Hamburger Button */}
@@ -173,12 +168,11 @@ export function Header() {
             }`}
             style={{ transitionDelay: isOpen ? '450ms' : '0ms' }}
           >
-            <Button
-              onClick={scrollToForm}
-              className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg w-full cursor-pointer"
-            >
-              Começar agora
-            </Button>
+            <Link href="/checkout" onClick={() => setIsOpen(false)} className="block">
+              <Button className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg w-full cursor-pointer">
+                Começar agora
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
